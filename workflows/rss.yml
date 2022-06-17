@@ -9,7 +9,7 @@ jobs:
       - name: Make a HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: http://122.51.131.110:8098/${{ BARK_TOKEN }}
+          url: http://122.51.131.110:8098/${{ secrets.BARK_TOKEN }}
           method: POST
           body: |
             {
