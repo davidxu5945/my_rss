@@ -3,17 +3,29 @@ on:
     url: https://hnrss.org/newest?points=300&count=4
 jobs:
   request:
-    name: Make a HTTP Request
+    name: PUT INFO to CUBOX
     runs-on: ubuntu-latest
     steps:
       - name: Make a HTTP Request
         uses: actionsflow/axios@v1
         with:
-          url: http://122.51.131.110:8098/${{ secrets.BARK_TOKEN }}
+          url: https://cubox.pro/c/api/save/${{ secrets.API_KEY }}
           method: POST
           body: |
             {
-              "body":"${{ on.rss.outputs.link }}", 
-              "title": "${{ on.rss.outputs.title }}"
+              "type":"url",
+              "content":"${{ on.rss.outputs.link }}", 
+              "title": "${{ on.rss.outputs.title }}",
+              "folder":"RSS"
             }
+      # - name: Make a HTTP Request
+      #   uses: actionsflow/axios@v1
+      #   with:
+      #     url: http://122.51.131.110:8098/${{ secrets.BARK_TOKEN }}
+      #     method: POST
+      #     body: |
+      #       {
+      #         "body":"${{ on.rss.outputs.link }}", 
+      #         "title": "${{ on.rss.outputs.title }}"
+      #       }
       
