@@ -1,6 +1,8 @@
 on:
   rss:
-    url: https://hnrss.org/newest?points=300&count=4
+    url: 
+      - https://rsshub.app/sspai/index
+      - https://kill-the-newsletter.com/feeds/6hiq8ql6fhnjvy6f.xml
 jobs:
   request:
     name: PUT INFO to CUBOX
