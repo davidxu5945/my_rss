@@ -1,8 +1,14 @@
 on:
   rss:
     url: 
+      # 少数派
       - https://rsshub.app/sspai/index
+      # kill-the-newsletter 邮件订阅
       - https://kill-the-newsletter.com/feeds/6hiq8ql6fhnjvy6f.xml
+      # 月光博客
+      - http://feed.williamlong.info
+      # 小众软件
+      - http://feed.appinn.com/
 jobs:
   request:
     name: PUT INFO to CUBOX
@@ -20,14 +26,4 @@ jobs:
               "title": "${{ on.rss.outputs.title }}",
               "folder":"RSS"
             }
-      # - name: Make a HTTP Request
-      #   uses: actionsflow/axios@v1
-      #   with:
-      #     url: http://122.51.131.110:8098/${{ secrets.BARK_TOKEN }}
-      #     method: POST
-      #     body: |
-      #       {
-      #         "body":"${{ on.rss.outputs.link }}", 
-      #         "title": "${{ on.rss.outputs.title }}"
-      #       }
       
