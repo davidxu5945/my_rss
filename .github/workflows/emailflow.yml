@@ -2,7 +2,7 @@ name: 'Daily Print Email Bot'
 on:
   push:
   schedule:
-    - cron: '10 0 */1 * *'
+    - cron: '20 7 */1 * *'
 jobs:
   run:
     runs-on: ubuntu-latest
