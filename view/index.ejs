@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div>
+        第<span style="font-weight: bolder;"><%=dateIndex%></span>篇
+        <p>近期天气预报</p>
+        <ul>
+            <% weatherData.forEach(function(item){%>
+                <li>
+                    <span><%=item.day%></span>
+                    <span><%=item.weather%></span>
+                    <span><%=item.temp%></span>
+                    <span><%=item.air%></span>
+                </li>
+                <% }) %>
+        </ul>
+        <p>
+            <%=today%>
+        </p>
+        <div>
+            <img src="<%=oneData.imgUrl%>" />
+        </div>
+        <p>
+            <%=oneData.type%>
+        </p>
+        <p>
+            <%=oneData.text%>
+        </p>
+    </div>
+</body>
+
+</html>

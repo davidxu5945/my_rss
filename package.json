@@ -13,6 +13,7 @@
     ],
     "license": "0BSD",
     "scripts": {
+        "email": "node index.js",
         "build": "actionsflow build",
         "start": "actionsflow start",
         "watch": "actionsflow start -w",
@@ -26,5 +27,12 @@
     },
     "bugs": {
         "url": "https://github.com/actionsflow/actionsflow-workflow-default/issues"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.12",
+        "dayjs": "^1.11.3",
+        "ejs": "^3.1.8",
+        "nodemailer": "^6.7.7",
+        "superagent": "^8.0.0"
     }
 }

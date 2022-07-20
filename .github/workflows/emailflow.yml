@@ -1,0 +1,19 @@
+name: 'Daily Print Email Bot'
+on:
+  push:
+  schedule:
+    - cron: '10 0 */1 * *'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'use node 10'
+        uses: actions/setup-node@v1
+      - name: 'Run email task'
+        env:
+          sender: ${{ secrets.SENDER }}
+          receiver: ${{ secrets.RECEIVER }}
+          sender_pass: ${{ secrets.SENDER_PASS }}
+        run: npm install && npm run email
