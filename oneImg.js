@@ -43,6 +43,9 @@ const getWeatherData = async function(url) {
     })
 }
 const getDateIndex = () => Math.ceil((new Date().getTime() - 1658306861223) / (24 * 60 * 60 * 1000));
-const getToday = () => new Date().getFullYear() + " / " + new Date().getMonth() + " / " + new Date().getDate();
+const getToday = () => {
+    const currentDate = new Date();
+    return currentDate.getFullYear() + " / " + (currentDate.getMonth() + 1) + " / " + currentDate.getDate();
+};
 
 module.exports = { getOneData, getWeatherData, getToday, getDateIndex }

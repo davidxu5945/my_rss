@@ -26,8 +26,14 @@ if (to !== '' && user !== '' && pass !== '') {
         let mailOptions = {
             from: '"每日预报"',
             to: to,
-            subject: '每日预报', // Subject line
-            html: html
+            subject: '每日预报' + dateIndex, // Subject line
+            html: html,
+            attachments: [{
+                // use URL as an attachment
+                filename: 'pic.jpeg',
+                path: data[0].imgUrl,
+                cid: 'unique_pic'
+            }]
         };
         console.log(html);
         sendMail(mailOptions, function(err, info) {
