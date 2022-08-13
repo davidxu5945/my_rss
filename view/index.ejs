@@ -2,6 +2,21 @@
 
 <head>
     <meta charset="utf-8">
+
+    <style type="text/css">
+        #img_div {
+            padding: 80% 0 0;
+            position: relative;
+        }
+    
+        #img_div>img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +36,7 @@
         <p>
             <%=today%>
         </p>
-        <div>
+        <div id="img_div">
             <img src="cid:unique_pic" />
         </div>
         <p>
