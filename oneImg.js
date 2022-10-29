@@ -10,14 +10,26 @@ const getOneData = async function(url) {
             let $ = cheerio.load(res.text);
             let selectItem = $('#carousel-one .carousel-inner .item');
             let todayOne = selectItem[0];
+            const imgUrl = $(todayOne).find('.fp-one-imagen').attr('src');
             let todayOneData = {
-                imgUrl: $(todayOne).find('.fp-one-imagen').attr('src'),
+                imgUrl: imgUrl,
                 type: $(todayOne).find('.fp-one-imagen-footer').text().replace(/(^\s*)|(\s*$)/g, ""),
                 text: $(todayOne).find('.fp-one-cita').text().replace(/(^\s*)|(\s*$)/g, ""),
             }
             resolve(todayOneData)
         })
     })
+}
+const getImageData = async function(url) {
+    return new Promise(resolve => {
+        superagent.get(url).end((err, res) => {
+            if (err) {
+                return err
+            }
+            const base64Img = res.body.toString('base64');
+            resolve(`data:image/png;base64,${base64Img}`);
+        });
+    });
 }
 const getWeatherData = async function(url) {
     return new Promise(resolve => {
@@ -48,4 +60,10 @@ const getToday = () => {
     return currentDate.getFullYear() + " / " + (currentDate.getMonth() + 1) + " / " + currentDate.getDate();
 };
 
-module.exports = { getOneData, getWeatherData, getToday, getDateIndex }
+module.exports = {
+    getOneData,
+    getImageData,
+    getWeatherData,
+    getToday,
+    getDateIndex
+}
