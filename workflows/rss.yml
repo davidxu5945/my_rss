@@ -1,14 +1,16 @@
 on:
   rss:
     url: 
-      # 少数派
-      - https://rsshub.app/sspai/index
+      # # 少数派
+      # - https://rsshub.app/sspai/index
       # kill-the-newsletter 邮件订阅
       - https://kill-the-newsletter.com/feeds/6hiq8ql6fhnjvy6f.xml
       # 月光博客
       # - https://www.williamlong.info/rss.xml
       # 小众软件
       - http://feed.appinn.com/
+      # 潮流周刊
+      - https://weekly.tw93.fun/rss.xml
 jobs:
   request:
     name: PUT INFO to CUBOX
